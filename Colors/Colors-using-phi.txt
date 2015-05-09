@@ -1,0 +1,16 @@
+(*
+ *Licensed under The MIT License
+ *For full copyright and license information,please see the LICENSE.txt
+ *Redistributions of files must retain the above copyright notice.
+ * Text version
+*)
+
+Permutations[{1, 1/x, 1/x^2, 0}] // N(*The CMYK colors using phi*)
+
+x = (Sqrt[5] + 1)/2
+
+Table[Graphics[{RGBColor[f], Disk[{0, 0}, 0.1]}], {f, Permutations[{1, 1/x, 0}]}]
+
+Table[Graphics[{CMYKColor[f], Disk[{0, 0}, 0.1]}], {f, Permutations[{1, 1/x, 0, 0}]}]
+
+Table[Graphics[{Hue[f], Disk[{0, 0}, 0.1]}], {f,  Permutations[{1, 1/x, 1/x^2}]}]

@@ -1,0 +1,415 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     12940,        406]
+NotebookOptionsPosition[     12045,        372]
+NotebookOutlinePosition[     12465,        388]
+CellTagsIndexPosition[     12422,        385]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", "\[IndentingNewLine]", " ", 
+  RowBox[{
+   RowBox[{
+   "*", "Licensed", " ", "under", " ", "The", " ", "MIT", " ", "License", 
+    "\n", " ", "*", "For", " ", "full", " ", "copyright", " ", "and", " ", 
+    "license", " ", "information"}], ",", 
+   RowBox[{"please", " ", "see", " ", "the", " ", 
+    RowBox[{"LICENSE", ".", "txt"}], "\n", " ", "*", "Redistributions", " ", 
+    "of", " ", "files", " ", "must", " ", "retain", " ", "the", " ", "above", 
+    " ", "copyright", " ", 
+    RowBox[{"notice", "."}]}]}], "\[IndentingNewLine]", "*)"}]], "Input",
+ CellChangeTimes->{{3.6401933210777903`*^9, 3.6401933238199472`*^9}, {
+  3.6401938011392484`*^9, 3.640193804229425*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Permutations", "[", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"1", "/", "x"}], ",", 
+     RowBox[{"1", "/", 
+      SuperscriptBox["x", "2"]}], ",", "0"}], "}"}], "]"}], "//", "N", 
+  RowBox[{"(*", 
+   RowBox[{"The", " ", "CMYK", " ", "colors", " ", "using", " ", "phi"}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.4854774841169043`*^9, 3.485477490500269*^9}, {
+  3.640193277803315*^9, 3.64019330270774*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "1.`", ",", "0.6180339887498948`", ",", "0.38196601125010515`", ",", 
+     "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.`", ",", "0.6180339887498948`", ",", "0.`", ",", 
+     "0.38196601125010515`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.`", ",", "0.38196601125010515`", ",", "0.6180339887498948`", ",", 
+     "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.`", ",", "0.38196601125010515`", ",", "0.`", ",", 
+     "0.6180339887498948`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.`", ",", "0.`", ",", "0.6180339887498948`", ",", 
+     "0.38196601125010515`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.`", ",", "0.`", ",", "0.38196601125010515`", ",", 
+     "0.6180339887498948`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.6180339887498948`", ",", "1.`", ",", "0.38196601125010515`", ",", 
+     "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.6180339887498948`", ",", "1.`", ",", "0.`", ",", 
+     "0.38196601125010515`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.6180339887498948`", ",", "0.38196601125010515`", ",", "1.`", ",", 
+     "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.6180339887498948`", ",", "0.38196601125010515`", ",", "0.`", ",", 
+     "1.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.6180339887498948`", ",", "0.`", ",", "1.`", ",", 
+     "0.38196601125010515`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.6180339887498948`", ",", "0.`", ",", "0.38196601125010515`", ",", 
+     "1.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.38196601125010515`", ",", "1.`", ",", "0.6180339887498948`", ",", 
+     "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.38196601125010515`", ",", "1.`", ",", "0.`", ",", 
+     "0.6180339887498948`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.38196601125010515`", ",", "0.6180339887498948`", ",", "1.`", ",", 
+     "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.38196601125010515`", ",", "0.6180339887498948`", ",", "0.`", ",", 
+     "1.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.38196601125010515`", ",", "0.`", ",", "1.`", ",", 
+     "0.6180339887498948`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.38196601125010515`", ",", "0.`", ",", "0.6180339887498948`", ",", 
+     "1.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.`", ",", "1.`", ",", "0.6180339887498948`", ",", 
+     "0.38196601125010515`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.`", ",", "1.`", ",", "0.38196601125010515`", ",", 
+     "0.6180339887498948`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.`", ",", "0.6180339887498948`", ",", "1.`", ",", 
+     "0.38196601125010515`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.`", ",", "0.6180339887498948`", ",", "0.38196601125010515`", ",", 
+     "1.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.`", ",", "0.38196601125010515`", ",", "1.`", ",", 
+     "0.6180339887498948`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.`", ",", "0.38196601125010515`", ",", "0.6180339887498948`", ",", 
+     "1.`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6401932241502466`*^9, {3.6401932681797647`*^9, 3.6401932795374146`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"x", "=", 
+  FractionBox[
+   RowBox[{
+    SqrtBox["5"], "+", "1"}], "2"]}]], "Input",
+ CellChangeTimes->{{3.485477531241599*^9, 3.485477540363121*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  RowBox[{"(", 
+   RowBox[{"1", "+", 
+    SqrtBox["5"]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.485477541006158*^9, 3.6401932281954775`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"RGBColor", "[", "f", "]"}], ",", 
+      RowBox[{"Disk", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", "0.1"}], "]"}]}], "}"}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"f", ",", 
+     RowBox[{"Permutations", "[", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{"1", "/", "x"}], ",", "0"}], "}"}], "]"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.640193749381288*^9, 3.6401937536375313`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   GraphicsBox[
+    {RGBColor[
+      NCache[{1, 2/(1 + 5^Rational[1, 2]), 0}, {1, 0.6180339887498948, 0}]], 
+     DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {RGBColor[
+      NCache[{1, 0, 2/(1 + 5^Rational[1, 2])}, {1, 0, 0.6180339887498948}]], 
+     DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {RGBColor[
+      NCache[{2/(1 + 5^Rational[1, 2]), 1, 0}, {0.6180339887498948, 1, 0}]], 
+     DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {RGBColor[
+      NCache[{2/(1 + 5^Rational[1, 2]), 0, 1}, {0.6180339887498948, 0, 1}]], 
+     DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {RGBColor[
+      NCache[{0, 1, 2/(1 + 5^Rational[1, 2])}, {0, 1, 0.6180339887498948}]], 
+     DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {RGBColor[
+      NCache[{0, 2/(1 + 5^Rational[1, 2]), 1}, {0, 0.6180339887498948, 1}]], 
+     DiskBox[{0, 0}, 0.1]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6401937540365543`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"CMYKColor", "[", "f", "]"}], ",", 
+      RowBox[{"Disk", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", "0.1"}], "]"}]}], "}"}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"f", ",", 
+     RowBox[{"Permutations", "[", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{"1", "/", "x"}], ",", "0", ",", "0"}], "}"}], "]"}]}], 
+    "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4854775048980923`*^9, 3.485477528067418*^9}, {
+   3.4854775759171543`*^9, 3.4854775793033485`*^9}, {3.4854776126172533`*^9, 
+   3.4854776369746466`*^9}, 3.485477690405703*^9, {3.6401935500258856`*^9, 
+   3.640193560630492*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{1, 2/(1 + 5^Rational[1, 2]), 0, 0}, {
+       1, 0.6180339887498948, 0, 0}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{1, 0, 2/(1 + 5^Rational[1, 2]), 0}, {
+       1, 0, 0.6180339887498948, 0}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{1, 0, 0, 2/(1 + 5^Rational[1, 2])}, {
+       1, 0, 0, 0.6180339887498948}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{2/(1 + 5^Rational[1, 2]), 1, 0, 0}, {
+       0.6180339887498948, 1, 0, 0}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{2/(1 + 5^Rational[1, 2]), 0, 1, 0}, {
+       0.6180339887498948, 0, 1, 0}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{2/(1 + 5^Rational[1, 2]), 0, 0, 1}, {
+       0.6180339887498948, 0, 0, 1}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{0, 1, 2/(1 + 5^Rational[1, 2]), 0}, {
+       0, 1, 0.6180339887498948, 0}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{0, 1, 0, 2/(1 + 5^Rational[1, 2])}, {
+       0, 1, 0, 0.6180339887498948}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{0, 2/(1 + 5^Rational[1, 2]), 1, 0}, {
+       0, 0.6180339887498948, 1, 0}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{0, 2/(1 + 5^Rational[1, 2]), 0, 1}, {
+       0, 0.6180339887498948, 0, 1}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{0, 0, 1, 2/(1 + 5^Rational[1, 2])}, {
+       0, 0, 1, 0.6180339887498948}]], DiskBox[{0, 0}, 0.1]}], ",", 
+   GraphicsBox[
+    {CMYKColor[
+      NCache[{0, 0, 2/(1 + 5^Rational[1, 2]), 1}, {
+       0, 0, 0.6180339887498948, 1}]], DiskBox[{0, 0}, 0.1]}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.48547754330929*^9, 3.4854775801933994`*^9, {3.485477619071623*^9, 
+   3.485477637607683*^9}, 3.4854776918347845`*^9, 3.640193230807627*^9, {
+   3.6401935530340576`*^9, 3.640193561961568*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Hue", "[", "f", "]"}], ",", 
+      RowBox[{"Disk", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", "0.1"}], "]"}]}], "}"}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"f", ",", 
+     RowBox[{"Permutations", "[", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{"1", "/", "x"}], ",", 
+        RowBox[{"1", "/", 
+         SuperscriptBox["x", "2"]}]}], "}"}], "]"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6401935719891415`*^9, 3.640193603729957*^9}, {
+  3.640193851428125*^9, 3.6401938770905924`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   GraphicsBox[
+    {Hue[
+      NCache[{1, 2/(1 + 5^Rational[1, 2]), 4 (1 + 5^Rational[1, 2])^(-2)}, {
+       1, 0.6180339887498948, 0.38196601125010515`}]], DiskBox[{0, 0}, 0.1]}],
+    ",", 
+   GraphicsBox[
+    {Hue[
+      NCache[{1, 4 (1 + 5^Rational[1, 2])^(-2), 2/(1 + 5^Rational[1, 2])}, {
+       1, 0.38196601125010515`, 0.6180339887498948}]], DiskBox[{0, 0}, 0.1]}],
+    ",", 
+   GraphicsBox[
+    {Hue[
+      NCache[{2/(1 + 5^Rational[1, 2]), 1, 4 (1 + 5^Rational[1, 2])^(-2)}, {
+       0.6180339887498948, 1, 0.38196601125010515`}]], DiskBox[{0, 0}, 0.1]}],
+    ",", 
+   GraphicsBox[
+    {Hue[
+      NCache[{2/(1 + 5^Rational[1, 2]), 4 (1 + 5^Rational[1, 2])^(-2), 1}, {
+       0.6180339887498948, 0.38196601125010515`, 1}]], DiskBox[{0, 0}, 0.1]}],
+    ",", 
+   GraphicsBox[
+    {Hue[
+      NCache[{4 (1 + 5^Rational[1, 2])^(-2), 1, 2/(1 + 5^Rational[1, 2])}, {
+       0.38196601125010515`, 1, 0.6180339887498948}]], DiskBox[{0, 0}, 0.1]}],
+    ",", 
+   GraphicsBox[
+    {Hue[
+      NCache[{4 (1 + 5^Rational[1, 2])^(-2), 2/(1 + 5^Rational[1, 2]), 1}, {
+       0.38196601125010515`, 0.6180339887498948, 1}]], 
+     DiskBox[{0, 0}, 0.1]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6401935779644833`*^9, 3.640193604406996*^9}, {
+  3.640193852166167*^9, 3.640193877310605*^9}}]
+}, Open  ]]
+},
+WindowSize->{1920, 998},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 705, 13, 112, "Input"],
+Cell[CellGroupData[{
+Cell[1275, 37, 458, 12, 33, "Input"],
+Cell[1736, 51, 3294, 100, 92, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5067, 156, 174, 5, 51, "Input"],
+Cell[5244, 163, 198, 6, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5479, 174, 591, 19, 31, "Input"],
+Cell[6073, 195, 961, 27, 197, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7071, 227, 786, 22, 31, "Input"],
+Cell[7860, 251, 2108, 55, 409, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10005, 311, 697, 22, 33, "Input"],
+Cell[10705, 335, 1324, 34, 197, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
