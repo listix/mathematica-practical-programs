@@ -1,0 +1,13 @@
+(*First we have to get the abbreviation of each element*)
+In[73]:= elements=Table[ElementData[y,"Abbreviation"],{y,1,Length[ElementData[]]}];
+(*We create a recursive function that searches for the first element that matches the start of the word. We add that to the current list and calls recursively. We will end with various nested lists with the inner most being the solutions that we want. We flatten all the lists whose head is a List.*)
+In[149]:= chemicalize[word_,list_]:=Flatten[Table[If[StringMatchQ[ToLowerCase[word],ToLowerCase[e]~~___],
+chemicalize[StringDrop[word,StringLength[e]],Join[list,{e}]],
+##&[]],{e,elements}],\[Infinity],List]
+(*We add a dummy header so we can clean up the nested lists with the above Flatten.*)
+In[155]:= chemicalize["",list_]:=dummy@@list
+(*We remove that header and change it to list. That leaves us with only the solutions to the word.*)
+In[158]:= Apply[List,#]&/@chemicalize["SUBCONSCIOUSNEsS",{}]
+Out[158]= {{S,U,B,C,O,N,S,C,I,O,U,S,N,Es,S},{S,U,B,C,O,N,S,C,I,O,U,S,Ne,S,S},{S,U,B,C,O,N,S,C,I,O,U,Sn,Es,S},{S,U,B,C,O,N,Sc,I,O,U,S,N,Es,S},{S,U,B,C,O,N,Sc,I,O,U,S,Ne,S,S},{S,U,B,C,O,N,Sc,I,O,U,Sn,Es,S},{S,U,B,Co,N,S,C,I,O,U,S,N,Es,S},{S,U,B,Co,N,S,C,I,O,U,S,Ne,S,S},{S,U,B,Co,N,S,C,I,O,U,Sn,Es,S},{S,U,B,Co,N,Sc,I,O,U,S,N,Es,S},{S,U,B,Co,N,Sc,I,O,U,S,Ne,S,S},{S,U,B,Co,N,Sc,I,O,U,Sn,Es,S}}
+In[153]:= StringJoin/@%
+Out[153]= {SUBCONSCIOUSNEsS,SUBCONSCIOUSNeSS,SUBCONSCIOUSnEsS,SUBCONScIOUSNEsS,SUBCONScIOUSNeSS,SUBCONScIOUSnEsS,SUBCoNSCIOUSNEsS,SUBCoNSCIOUSNeSS,SUBCoNSCIOUSnEsS,SUBCoNScIOUSNEsS,SUBCoNScIOUSNeSS,SUBCoNScIOUSnEsS}

@@ -1,0 +1,263 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10774,        254]
+NotebookOptionsPosition[     10088,        227]
+NotebookOutlinePosition[     10427,        242]
+CellTagsIndexPosition[     10384,        239]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "First", " ", "we", " ", "have", " ", "to", " ", "get", " ", "the", " ", 
+   "abbreviation", " ", "of", " ", "each", " ", "element"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.6402088333720427`*^9, 3.6402088490979424`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"elements", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"ElementData", "[", 
+      RowBox[{"y", ",", "\"\<Abbreviation\>\""}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "1", ",", 
+       RowBox[{"Length", "[", 
+        RowBox[{"ElementData", "[", "]"}], "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6402089028100147`*^9, 3.640208906172207*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "We", " ", "create", " ", "a", " ", "recursive", " ", "function", " ", 
+   "that", " ", "searches", " ", "for", " ", "the", " ", "first", " ", 
+   "element", " ", "that", " ", "matches", " ", "the", " ", "start", " ", 
+   "of", " ", "the", " ", 
+   RowBox[{"word", ".", " ", "We"}], " ", "add", " ", "that", " ", "to", " ", 
+   "the", " ", "current", " ", "list", " ", "and", " ", "calls", " ", 
+   RowBox[{"recursively", ".", " ", "We"}], " ", "will", " ", "end", " ", 
+   "with", " ", "various", " ", "nested", " ", "lists", " ", "with", " ", 
+   "the", " ", "inner", " ", "most", " ", "being", " ", "the", " ", 
+   "solutions", " ", "that", " ", "we", " ", 
+   RowBox[{"want", ".", " ", "We"}], " ", "flatten", " ", "all", " ", "the", 
+   " ", "lists", " ", "whose", " ", "head", " ", "is", " ", "a", " ", 
+   RowBox[{"List", "."}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.6402127651969304`*^9, 3.6402128910391283`*^9}, {
+  3.64021294684332*^9, 3.6402129638372917`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"chemicalize", "[", 
+   RowBox[{"word_", ",", "list_"}], "]"}], ":=", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"StringMatchQ", "[", 
+         RowBox[{
+          RowBox[{"ToLowerCase", "[", "word", "]"}], ",", 
+          RowBox[{
+           RowBox[{"ToLowerCase", "[", "e", "]"}], "~~", "___"}]}], "]"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"chemicalize", "[", 
+         RowBox[{
+          RowBox[{"StringDrop", "[", 
+           RowBox[{"word", ",", 
+            RowBox[{"StringLength", "[", "e", "]"}]}], "]"}], ",", 
+          RowBox[{"Join", "[", 
+           RowBox[{"list", ",", 
+            RowBox[{"{", "e", "}"}]}], "]"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"##", "&"}], "[", "]"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"e", ",", "elements"}], "}"}]}], "]"}], ",", "\[Infinity]", 
+    ",", "List"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.640211319378234*^9, 3.6402114816175137`*^9}, {
+  3.640211605279587*^9, 3.6402116409376264`*^9}, {3.6402116944276857`*^9, 
+  3.6402117258044806`*^9}, {3.640211815708623*^9, 3.6402118470374146`*^9}, {
+  3.640211879928296*^9, 3.6402118902338853`*^9}, {3.6402119575127335`*^9, 
+  3.640211958696801*^9}, {3.6402123076917624`*^9, 3.640212322706621*^9}, {
+  3.6402123550534716`*^9, 3.640212356563558*^9}, {3.6402123923086023`*^9, 
+  3.640212404032273*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "We", " ", "add", " ", "a", " ", "dummy", " ", "header", " ", "so", " ", 
+   "we", " ", "can", " ", "clean", " ", "up", " ", "the", " ", "nested", " ", 
+   "lists", " ", "with", " ", "the", " ", "above", " ", 
+   RowBox[{"Flatten", "."}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.64021289317425*^9, 3.6402129438581495`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"chemicalize", "[", 
+   RowBox[{"\"\<\>\"", ",", "list_"}], "]"}], ":=", 
+  RowBox[{"dummy", "@@", "list"}]}]], "Input",
+ CellChangeTimes->{{3.6402117527150197`*^9, 3.640211759205391*^9}, {
+  3.640212192242159*^9, 3.6402121950803213`*^9}, {3.6402123315651283`*^9, 
+  3.640212390809517*^9}, {3.6402129120863323`*^9, 3.640212913534415*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "We", " ", "remove", " ", "that", " ", "header", " ", "and", " ", "change", 
+   " ", "it", " ", "to", " ", 
+   RowBox[{"list", ".", " ", "That"}], " ", "leaves", " ", "us", " ", "with", 
+   " ", "only", " ", "the", " ", "solutions", " ", "to", " ", "the", " ", 
+   RowBox[{"word", "."}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.6402129684615564`*^9, 3.640213000938414*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Apply", "[", 
+    RowBox[{"List", ",", "#"}], "]"}], "&"}], "/@", 
+  RowBox[{"chemicalize", "[", 
+   RowBox[{"\"\<SUBCONSCIOUSNEsS\>\"", ",", 
+    RowBox[{"{", "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.640212573379959*^9, 3.6402125948651876`*^9}, {
+   3.640212643450967*^9, 3.6402126498963356`*^9}, 3.640212875594245*^9, {
+   3.640212918415694*^9, 3.640212918820717*^9}, {3.6402130099999323`*^9, 
+   3.6402130282749777`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", ",", "\<\"C\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"N\"\>", ",", "\<\"S\"\>", ",", "\<\"C\"\>", 
+     ",", "\<\"I\"\>", ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"S\"\>", 
+     ",", "\<\"N\"\>", ",", "\<\"Es\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", ",", "\<\"C\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"N\"\>", ",", "\<\"S\"\>", ",", "\<\"C\"\>", 
+     ",", "\<\"I\"\>", ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"S\"\>", 
+     ",", "\<\"Ne\"\>", ",", "\<\"S\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", ",", "\<\"C\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"N\"\>", ",", "\<\"S\"\>", ",", "\<\"C\"\>", 
+     ",", "\<\"I\"\>", ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"Sn\"\>", 
+     ",", "\<\"Es\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", ",", "\<\"C\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"N\"\>", ",", "\<\"Sc\"\>", ",", "\<\"I\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"S\"\>", ",", "\<\"N\"\>", 
+     ",", "\<\"Es\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", ",", "\<\"C\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"N\"\>", ",", "\<\"Sc\"\>", ",", "\<\"I\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"S\"\>", ",", "\<\"Ne\"\>",
+      ",", "\<\"S\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", ",", "\<\"C\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"N\"\>", ",", "\<\"Sc\"\>", ",", "\<\"I\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"Sn\"\>", 
+     ",", "\<\"Es\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", 
+     ",", "\<\"Co\"\>", ",", "\<\"N\"\>", ",", "\<\"S\"\>", ",", "\<\"C\"\>", 
+     ",", "\<\"I\"\>", ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"S\"\>", 
+     ",", "\<\"N\"\>", ",", "\<\"Es\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", 
+     ",", "\<\"Co\"\>", ",", "\<\"N\"\>", ",", "\<\"S\"\>", ",", "\<\"C\"\>", 
+     ",", "\<\"I\"\>", ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"S\"\>", 
+     ",", "\<\"Ne\"\>", ",", "\<\"S\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", 
+     ",", "\<\"Co\"\>", ",", "\<\"N\"\>", ",", "\<\"S\"\>", ",", "\<\"C\"\>", 
+     ",", "\<\"I\"\>", ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"Sn\"\>", 
+     ",", "\<\"Es\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", 
+     ",", "\<\"Co\"\>", ",", "\<\"N\"\>", ",", "\<\"Sc\"\>", ",", "\<\"I\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"S\"\>", ",", "\<\"N\"\>", 
+     ",", "\<\"Es\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", 
+     ",", "\<\"Co\"\>", ",", "\<\"N\"\>", ",", "\<\"Sc\"\>", ",", "\<\"I\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"S\"\>", ",", "\<\"Ne\"\>",
+      ",", "\<\"S\"\>", ",", "\<\"S\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"S\"\>", ",", "\<\"U\"\>", ",", "\<\"B\"\>", 
+     ",", "\<\"Co\"\>", ",", "\<\"N\"\>", ",", "\<\"Sc\"\>", ",", "\<\"I\"\>",
+      ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"Sn\"\>", 
+     ",", "\<\"Es\"\>", ",", "\<\"S\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.640212318523382*^9, 3.6402124078934937`*^9}, 
+   3.640212595756239*^9, 3.6402126507363834`*^9, 3.640212876592302*^9, 
+   3.640212920214797*^9, {3.6402130147152023`*^9, 3.6402130288660116`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringJoin", "/@", "%"}]], "Input",
+ CellChangeTimes->{{3.640212708109665*^9, 3.640212710539804*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"SUBCONSCIOUSNEsS\"\>", ",", "\<\"SUBCONSCIOUSNeSS\"\>", 
+   ",", "\<\"SUBCONSCIOUSnEsS\"\>", ",", "\<\"SUBCONScIOUSNEsS\"\>", 
+   ",", "\<\"SUBCONScIOUSNeSS\"\>", ",", "\<\"SUBCONScIOUSnEsS\"\>", 
+   ",", "\<\"SUBCoNSCIOUSNEsS\"\>", ",", "\<\"SUBCoNSCIOUSNeSS\"\>", 
+   ",", "\<\"SUBCoNSCIOUSnEsS\"\>", ",", "\<\"SUBCoNScIOUSNEsS\"\>", 
+   ",", "\<\"SUBCoNScIOUSNeSS\"\>", ",", "\<\"SUBCoNScIOUSnEsS\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.640212711968886*^9}]
+}, Open  ]]
+},
+WindowSize->{944, 982},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 265, 5, 31, "Input"],
+Cell[826, 27, 430, 12, 31, "Input"],
+Cell[1259, 41, 1018, 17, 92, "Input"],
+Cell[2280, 60, 1505, 36, 72, "Input"],
+Cell[3788, 98, 368, 7, 31, "Input"],
+Cell[4159, 107, 372, 7, 31, "Input"],
+Cell[4534, 116, 418, 8, 52, "Input"],
+Cell[CellGroupData[{
+Cell[4977, 128, 480, 11, 31, "Input"],
+Cell[5460, 141, 3933, 65, 132, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9430, 211, 125, 2, 31, "Input"],
+Cell[9558, 215, 514, 9, 72, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
