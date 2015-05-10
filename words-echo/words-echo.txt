@@ -1,0 +1,37 @@
+(*
+ *Licensed under creative commons license
+ *For full copyright and license information,please see the LICENSE.txt
+ *Redistributions of files must retain the above copyright notice.
+*)
+In[138]:= Clear[echoed,ec,echo]
+(*This function finds the immediate echo of a word. E.g inaccurate becomes into accurate. I am leaving out words of one character. I am also using memoization to speed up the calculation of many echos at once*)
+In[139]:= echo[word_String]:=If[!ValueQ[echoed[word]],
+droppedChars=1;
+While[droppedChars<StringLength[word],
+If[Length[DictionaryLookup[StringDrop[word,droppedChars]]]>=1&&DictionaryLookup[StringDrop[word,droppedChars]][[1]]===StringDrop[word,droppedChars],
+echoed[word]=StringDrop[word,droppedChars];
+Break[];,
+echoed[word]=""
+];
+droppedChars++
+];
+echoed[word],echoed[word]]
+(*This function returns recursively the echos of an initial word. We remove the last element because its a empty string *)
+In[140]:= FindEchos[word_String]:=Drop[NestWhileList[echo,word,StringLength[#]>1&],-1]
+(*We get all the english words longer than 1*)
+In[142]:= dictionaryWords=DictionaryLookup[x__/;StringLength[x]>1];
+In[148]:= Length[dictionaryWords]
+Out[148]= 92516
+(*The first time that we use the function on all the words it takes 36 seconds*)
+In[143]:= Timing[ec=Table[FindEchos[word],{word,dictionaryWords}];]
+Out[143]= {36.800636,Null}
+(*If we run it again we can see the effects of memoization clearly.*)
+In[144]:= Timing[ec=Table[FindEchos[word],{word,dictionaryWords}];]
+Out[144]= {2.043613,Null}
+(*If we sort the list of echos by size so that we have the biggest one first we get*)
+In[150]:= Reverse[Sort[ec]]
+{{whiplashes,plashes,lashes,ashes,shes,hes,es},{thunderflashes,flashes,lashes,ashes,shes,hes,es},{splashes,plashes,lashes,ashes,shes,hes,es},{remigrates,emigrates,migrates,grates,rates,ates,es}, \[CenterEllipsis]92508\[CenterEllipsis] ,{abandonment},{abandoning},{abandoned},{abaci}}
+large output	show less	show more	show all	set size limit...
+
+
+
