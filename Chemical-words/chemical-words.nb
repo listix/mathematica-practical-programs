@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11480,        269]
-NotebookOptionsPosition[     10788,        242]
-NotebookOutlinePosition[     11127,        257]
-CellTagsIndexPosition[     11084,        254]
+NotebookDataLength[     11698,        275]
+NotebookOptionsPosition[     10968,        247]
+NotebookOutlinePosition[     11307,        262]
+CellTagsIndexPosition[     11264,        259]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -75,7 +75,7 @@ Cell[BoxData[
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"chemicalize", "[", 
+  RowBox[{"chemicalizeHelper", "[", 
    RowBox[{"word_", ",", "list_"}], "]"}], ":=", 
   RowBox[{"Flatten", "[", 
    RowBox[{
@@ -109,7 +109,7 @@ Cell[BoxData[
   3.640211879928296*^9, 3.6402118902338853`*^9}, {3.6402119575127335`*^9, 
   3.640211958696801*^9}, {3.6402123076917624`*^9, 3.640212322706621*^9}, {
   3.6402123550534716`*^9, 3.640212356563558*^9}, {3.6402123923086023`*^9, 
-  3.640212404032273*^9}}],
+  3.640212404032273*^9}, {3.640213486190169*^9, 3.640213488411296*^9}}],
 
 Cell[BoxData[
  RowBox[{"(*", 
@@ -122,12 +122,13 @@ Cell[BoxData[
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"chemicalize", "[", 
+  RowBox[{"chemicalizeHelper", "[", 
    RowBox[{"\"\<\>\"", ",", "list_"}], "]"}], ":=", 
   RowBox[{"dummy", "@@", "list"}]}]], "Input",
  CellChangeTimes->{{3.6402117527150197`*^9, 3.640211759205391*^9}, {
-  3.640212192242159*^9, 3.6402121950803213`*^9}, {3.6402123315651283`*^9, 
-  3.640212390809517*^9}, {3.6402129120863323`*^9, 3.640212913534415*^9}}],
+   3.640212192242159*^9, 3.6402121950803213`*^9}, {3.6402123315651283`*^9, 
+   3.640212390809517*^9}, {3.6402129120863323`*^9, 3.640212913534415*^9}, 
+   3.6402134927295427`*^9}],
 
 Cell[BoxData[
  RowBox[{"(*", 
@@ -139,20 +140,26 @@ Cell[BoxData[
    RowBox[{"word", "."}]}], "*)"}]], "Input",
  CellChangeTimes->{{3.6402129684615564`*^9, 3.640213000938414*^9}}],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{
+  RowBox[{"chemicalize", "[", "word_", "]"}], ":=", 
   RowBox[{
-   RowBox[{"Apply", "[", 
-    RowBox[{"List", ",", "#"}], "]"}], "&"}], "/@", 
-  RowBox[{"chemicalize", "[", 
-   RowBox[{"\"\<SUBCONSCIOUSNEsS\>\"", ",", 
-    RowBox[{"{", "}"}]}], "]"}]}]], "Input",
+   RowBox[{
+    RowBox[{"Apply", "[", 
+     RowBox[{"List", ",", "#"}], "]"}], "&"}], "/@", 
+   RowBox[{"chemicalizeHelper", "[", 
+    RowBox[{"word", ",", 
+     RowBox[{"{", "}"}]}], "]"}]}]}]], "Input",
  CellChangeTimes->{{3.640212573379959*^9, 3.6402125948651876`*^9}, {
    3.640212643450967*^9, 3.6402126498963356`*^9}, 3.640212875594245*^9, {
    3.640212918415694*^9, 3.640212918820717*^9}, {3.6402130099999323`*^9, 
-   3.6402130282749777`*^9}}],
+   3.6402130282749777`*^9}, {3.6402134955477037`*^9, 3.6402135229872737`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"chemicalize", "[", "\"\<subconsciousness\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6402135446465125`*^9, 3.640213553194001*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -217,9 +224,7 @@ Cell[BoxData[
      ",", "\<\"Co\"\>", ",", "\<\"N\"\>", ",", "\<\"Sc\"\>", ",", "\<\"I\"\>",
       ",", "\<\"O\"\>", ",", "\<\"U\"\>", ",", "\<\"Sn\"\>", 
      ",", "\<\"Es\"\>", ",", "\<\"S\"\>"}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{{3.640212318523382*^9, 3.6402124078934937`*^9}, 
-   3.640212595756239*^9, 3.6402126507363834`*^9, 3.640212876592302*^9, 
-   3.640212920214797*^9, {3.6402130147152023`*^9, 3.6402130288660116`*^9}}]
+ CellChangeTimes->{3.640213553965045*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -259,17 +264,18 @@ Notebook[{
 Cell[558, 20, 965, 20, 152, "Input"],
 Cell[1526, 42, 430, 12, 31, "Input"],
 Cell[1959, 56, 1018, 17, 92, "Input"],
-Cell[2980, 75, 1505, 36, 72, "Input"],
-Cell[4488, 113, 368, 7, 31, "Input"],
-Cell[4859, 122, 372, 7, 31, "Input"],
-Cell[5234, 131, 418, 8, 52, "Input"],
+Cell[2980, 75, 1557, 36, 92, "Input"],
+Cell[4540, 113, 368, 7, 31, "Input"],
+Cell[4911, 122, 408, 8, 31, "Input"],
+Cell[5322, 132, 418, 8, 52, "Input"],
+Cell[5743, 142, 588, 13, 31, "Input"],
 Cell[CellGroupData[{
-Cell[5677, 143, 480, 11, 31, "Input"],
-Cell[6160, 156, 3933, 65, 132, "Output"]
+Cell[6356, 159, 155, 2, 31, "Input"],
+Cell[6514, 163, 3759, 63, 132, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10130, 226, 125, 2, 31, "Input"],
-Cell[10258, 230, 514, 9, 72, "Output"]
+Cell[10310, 231, 125, 2, 31, "Input"],
+Cell[10438, 235, 514, 9, 72, "Output"]
 }, Open  ]]
 }
 ]
